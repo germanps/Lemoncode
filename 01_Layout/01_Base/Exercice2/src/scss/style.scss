@@ -1,0 +1,48 @@
+@import 'themeA.scss'; 
+//@import 'themeB.scss';
+
+body {
+    margin: 0;
+    padding: 0px;
+    display: flex;
+    justify-content: center;
+    font-family: 'Comfortaa', cursive;
+}
+.main-container {
+    display: flex;
+    flex-direction: column;
+    padding-top: 1rem;
+    .box {
+        background-color: $color-base;
+        border-radius: $border;
+        width: 120px;
+        height: 90px;
+        padding: 5px;
+        box-sizing: border-box;
+        border:solid 1px;
+        margin-bottom: 5px;
+        &:last-of-type {
+            margin-bottom: 0;
+        }
+        &.box-2{
+            background-color: darken($color-base, 15%);
+        }
+        &.box-3{
+            background-color: $color-second;
+        }
+        &.nobox{
+            p{
+                &:first-of-type{
+                    font-family: $fontbase;
+                }
+                :last-of-type{
+                    font-family: $fontsecond;
+                }
+            }
+        }
+        &.box-5{
+            background-color: white;
+            box-shadow: $shadow;
+        }
+    }
+}
