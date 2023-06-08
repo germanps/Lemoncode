@@ -4,7 +4,7 @@ import './Greet.scss'
 
 const Greet = (props) => {
   const {name} = props
-
+  
   return (
     <div className='average'>
       <div className='logo-container'>
