@@ -25,7 +25,7 @@ export const ListPage: React.FC = () => {
         <span className="list-header">Name</span>
         {members.map((member) => (
           <>
-            <img src={member.avatar_url} />
+            <img src={member.avatar_url} title={`avatar de ${member.login}}`} />
             <span>{member.id}</span>
             <Link to={`/detail/${member.login}`}>{member.login}</Link>
           </>

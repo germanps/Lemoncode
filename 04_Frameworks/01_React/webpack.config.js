@@ -8,7 +8,7 @@ module.exports = {
     extensions: [".js", ".ts", ".tsx"],
   },
   entry: {
-    app: ["./index.tsx", "./styles.css"],
+    app: ["./index.tsx", "./styles.scss"],
   },
   devtool: "eval-source-map",
   stats: "errors-only",
@@ -35,17 +35,10 @@ module.exports = {
         loader: "html-loader",
       },
       {
-        test: /\.css$/,
+        test: /\.scss$/,
         exclude: /node_modules/,
-        use: [
-          {
-            loader: "style-loader",
-          },
-          {
-            loader: "css-loader",
-          },
-        ],
-      },
+        use: [ "style-loader", {loader: "css-loader"},"sass-loader"]
+      }
     ],
   },
   plugins: [
