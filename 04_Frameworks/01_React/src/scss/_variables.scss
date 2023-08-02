@@ -1,0 +1,87 @@
+@import url('https://fonts.googleapis.com/icon?family=Material+Icons');
+@import url('https://fonts.googleapis.com/css2?family=Urbanist:wght@300;400;700&display=swap');
+
+/* PROJECT COLORS */
+$color-primary: #ea7600;
+$color-secondary: #fdc185;
+$color-primary-disabled: #d2d6d6;
+$color-primary-pressed: #474e4c;
+$color-primary-hover: #919b99;
+$color-text: #000;
+$color-error: #db1f1f;
+$color-error-bg: #a81414;
+$color-warning: #e9d355;
+$color-warning-bg: #c7b02e;
+$color-success: #2e9c72;
+$color-success-bg: #287c5c;
+$color-menu: #fff;
+$color-menu-bg: #252525;
+$color-header: #000;
+$color-header-bg: #fff;
+$color-main-bg: #f4f4f4;
+$color-aside-text-active: #fff;
+$color-aside-text-no-active: #a2a2a2;
+$color-aside-bg: #252525;
+$color-corporative: #ea7600;
+$color-corporative-clear: #fdc185;
+$color-corporative-dark: #cd6700;
+$color-border-gray: #e4e4e4;
+$color-spinner: #ea7600;
+
+/* OTHER COLORS */
+$color-black: #252525;
+$color-white: #ffffff;
+$color-gray: #606060;
+$color-gray-clear: #a2a2a2;
+$color-disabled: #8f8f8f;
+$color-disabled-clear: rgb(66 66 66 / 20%);
+$color-disabled-dark: #424242;
+$color-shadow: rgb(143 143 143 / 50%);
+$color-white: #fff;
+$color-white-clear: #f2f2f2;
+$color-red: #f5454b;
+$color-red-clear: #f76a6f;
+$color-red-dark: #df2e34;
+$color-border_red: #f84346;
+$color-border_red-dark: #e12b2d;
+$color-blue-dark-cold: #575f70;
+$color-green: #508745;
+$color-green-clear: #79b470;
+$color-green-dark: #46763c;
+$color-light-green: #aed1a9;
+$color-light-green-clear: #deecdc;
+$color-light-green-dark: #cde3ca;
+$color-orange: #ffa400;
+$color-orange-clear: #ffb640;
+$color-orange-dark: #ff9500;
+$color-bg-sand: #fff3de;
+$color-blue-dark: #071e4f;
+$color-blue-clear: #294785;
+
+/* FONTS */
+$font: 'Urbanist', sans-serif;
+
+/* MEDIA QUERIES */
+$media-xx-large: 1600px; //1400px
+$media-large-land: 1400px; //1366px
+$media-x-large: 1366px; //1200px
+$media-medium-land: 1200px; //1024px
+$media-large: 1024px; //992px
+$media-medium: 992px; //768px
+$media-small-land: 768px; //640px
+$media-small: 640px; //576px
+$media-x-small: 576px; //450px
+
+/* FONTS */
+$font: 'Urbanist', sans-serif;
+$font-size: 14px;
+$font-size-base: 1rem; // Assumes the browser default, typically `16px`
+$font-size-sm: $font-size-base * 0.875;
+$font-size-lg: $font-size-base * 1.25;
+$font-size-h1: $font-size-base * 2.5; //40px
+$font-size-h2: $font-size-base * 2; //32
+$font-size-h3: $font-size-base * 1.75; //28
+$font-size-h4: $font-size-base * 1.5; //24
+$font-size-h5: $font-size-base * 1.25; //20
+$font-size-h6: $font-size-base;
+$font-size-form-components: 0.9rem;

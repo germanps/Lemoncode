@@ -1,0 +1,62 @@
+@import './variables';
+@import './mixins';
+
+/* GENERAL CUSTOM STYLES */
+*,
+html,
+body {
+  font-family: $font;
+  font-size: $font-size;
+  box-sizing: border-box;
+  text-size-adjust: 100%;
+  -webkit-tap-highlight-color: rgba($color-black, 0);
+}
+
+h1,
+h2,
+h3 {
+  margin-top: 0;
+  margin-bottom: 0.5rem;
+  font-weight: 500;
+  line-height: 1.2;
+}
+
+h1 {
+  font-size: $font-size-base * 2;
+}
+
+h2 {
+  font-size: $font-size-base * 1.5;
+}
+
+h3 {
+  font-size: $font-size-base * 1.125;
+}
+
+img {
+  max-width: 100%;
+}
+
+a {
+  text-decoration: none;
+  color: initial;
+}
+
+
+.list-user-list-container {
+    display: grid;
+    grid-template-columns: 80px 1fr 3fr;
+    grid-template-rows: 20px;
+    grid-auto-rows: 80px;
+    grid-gap: 10px 5px;
+  }
+  
+  .list-header {
+    background-color: $color-primary;
+    color: white;
+    font-weight: bold;
+  }
+  
+  .list-user-list-container > img {
+    width: 80px;
+  }
