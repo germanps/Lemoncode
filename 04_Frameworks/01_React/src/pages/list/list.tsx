@@ -8,7 +8,7 @@ interface MemberEntity {
   avatar_url: string;
 }
 
-export const ListPage: React.FC = () => {
+const List: React.FC = () => {
   const [members, setMembers] = React.useState<MemberEntity[]>([]);
 
   React.useEffect(() => {
@@ -37,3 +37,5 @@ export const ListPage: React.FC = () => {
     </>
   );
 };
+
+export default List;

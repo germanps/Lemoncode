@@ -1,16 +1,16 @@
 import React from "react";
 import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
-import { LoginPage } from "./login";
-import { ListPage } from "./list";
-import { DetailPage } from "./detail";
+import Login from "./pages/login";
+import List from "./pages/list";
+import Detail from "./pages/detail/detail";
 
 export const App = () => {
   return (
     <Router>
       <Routes>
-        <Route path="/" element={<LoginPage />} />
-        <Route path="/list" element={<ListPage />} />
-        <Route path="/detail/:id" element={<DetailPage />} />
+        <Route path="/" element={<Login />} />
+        <Route path="/list" element={<List />} />
+        <Route path="/detail/:id" element={<Detail />} />
       </Routes>
     </Router>
   );
