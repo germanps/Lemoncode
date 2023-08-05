@@ -1,0 +1,27 @@
+@import '../../scss/index.scss';
+
+.list {
+    @include container();
+    min-height: 100vh;
+    &-title{
+        text-align: center;
+        margin-bottom: 2rem;
+    }
+    .list-grid-wrapper{
+        max-width: 768px;
+        margin: auto;
+        .members-list-grid {
+            font-size: 1.2rem;
+            .avatar-cell {
+                width: 100%;
+                height: 50px;
+                .image {
+                    width: 100%;
+                    height: 50px;
+                    object-fit: contain;
+                }
+            }
+        }  
+
+    }
+}

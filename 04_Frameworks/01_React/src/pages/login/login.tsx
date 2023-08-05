@@ -51,6 +51,7 @@ const Login: React.FC = () => {
                 type="submit" 
                 variant="contained"
                 endIcon={<SendIcon />}
+                disabled={username === '' || password === '' ? true : false}
               >Login</Button>
             </div>
           </div>
