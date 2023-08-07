@@ -4,6 +4,10 @@ import { DataGrid, GridColDef } from '@mui/x-data-grid';
 import TextField from '@mui/material/TextField';
 import Button  from "@mui/material/Button";
 import SearchIcon from '@mui/icons-material/Search';
+import Stack from '@mui/material/Stack';
+import Paper from '@mui/material/Paper';
+import { styled } from '@mui/material/styles';
+import { useOrganizationContext } from '../../contexts/OrganizationContext'
 import './list.scss';
 
 interface MemberEntity {
@@ -13,24 +17,42 @@ interface MemberEntity {
 }
 
 const List: React.FC = () => {
+  const {organization, setOrganization} = useOrganizationContext()
   const [members, setMembers] = useState<MemberEntity[]>([]);
-  const [organization, setOrganization] = useState<string>('lemoncode')
+  const [showMembersError, setShowMembersError] = useState(false)
   const [organizationSearch, setOrganizationSearch] = useState<string>(organization)
 
   React.useEffect(() => {
+    setShowMembersError(false)
     getOrganization()
   }, [organization]);
 
   const getOrganization = () => {
     fetch(`https://api.github.com/orgs/${organizationSearch}/members`)
       .then((response) => response.json())
-      .then((json) => setMembers(json));
+      .then((json) => {
+        if(json.length > 0) setMembers(json)
+        else handleMembersError()
+      } );
   }
 
   const handleSearchOrganization = (e) => {
     e.preventDefault()
     setOrganization(organizationSearch)
   }
+
+  const handleMembersError = () => {
+    setMembers([])
+    setShowMembersError(true)
+  }
+
+  const Item = styled(Paper)(({ theme }) => ({
+    backgroundColor: theme.palette.mode === 'dark' ? '#1A2027' : '#fff',
+    ...theme.typography.body2,
+    padding: theme.spacing(1),
+    textAlign: 'center',
+    color: theme.palette.text.secondary,
+  }));
   
 
   const columns: GridColDef[] = [
@@ -55,7 +77,7 @@ const List: React.FC = () => {
       editable: true,
       renderCell: (params) => {
         return (
-          <Link to={`/detail/${params.value}`}>{params.value}</Link>
+          <Link className="link" to={`/detail/${params.value}`} state={{user: params.row}}>{params.value}</Link>
         )
       }
     },
@@ -85,15 +107,26 @@ const List: React.FC = () => {
                 type="submit" 
                 variant="contained"
                 endIcon={<SearchIcon />}
-                disabled={organization === '' || organization.length < 3 ? true : false}
+                size="large"
+                style={{padding: '14px 22px'}}
+                disabled={organizationSearch === '' || organizationSearch.length < 3 ? true : false}
               >Buscar</Button>
             </div>
           </form>
         </div>
+        {
+          showMembersError && 
+            <Stack spacing={1} style={{marginBottom: '1rem'}}>
+              <Item style={{fontSize: '1.2rem'}}>
+                No se encuentran miembros para esta organización: {organization}
+              </Item>
+            </Stack>
+        }
         <DataGrid
           rows={members}
           columns={columns}
           className="members-list-grid"
+          style={{minHeight: '150'}}
           initialState={{
             pagination: {
               paginationModel: {
@@ -105,9 +138,13 @@ const List: React.FC = () => {
           checkboxSelection={false}
           disableRowSelectionOnClick
         />
-        <div className="navigation-link">
-          <Link to="/detail">Navigate to detail page</Link>
-        </div>
+        {
+          !showMembersError && 
+
+            <Stack className="navigation-link" spacing={1}>
+              <Item style={{fontSize: '1.2rem'}}>Para navegar a la página de usuario hacer click en su nombre</Item>
+            </Stack>
+        }
       </div>
     </div>
   );
