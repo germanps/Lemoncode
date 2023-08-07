@@ -5,13 +5,35 @@
     min-height: 100vh;
     &-title{
         text-align: center;
-        margin-bottom: 2rem;
+        margin-bottom: 2.5rem;
+        span {
+            border-bottom: 1.5px solid $color-primary;
+            padding-bottom: .5rem;
+        }
     }
     .list-grid-wrapper{
         max-width: 768px;
         margin: auto;
+        .list-grid-header {
+            @include flexbox(100%, row, space-between, center, nowrap);
+            margin-bottom: 1rem;
+            .list-sub-title {
+                width: 100%;
+                span {
+                    color: $color-primary;
+                    font-weight: bold;
+                }
+            }
+            .filter-wrapper{
+                @include flexbox(100%, row, flex-end, center);
+                .control-wrapper:last-of-type {
+                    margin-left: 1rem;
+                }
+            }
+        }
         .members-list-grid {
             font-size: 1.2rem;
+            margin-bottom: 1.5rem;
             .avatar-cell {
                 width: 100%;
                 height: 50px;

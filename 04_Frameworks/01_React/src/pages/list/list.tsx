@@ -1,7 +1,9 @@
-import React from "react";
+import React, { useState } from "react";
 import { Link } from "react-router-dom";
-import { DataGrid, GridColDef, GridValueGetterParams } from '@mui/x-data-grid';
-
+import { DataGrid, GridColDef } from '@mui/x-data-grid';
+import TextField from '@mui/material/TextField';
+import Button  from "@mui/material/Button";
+import SearchIcon from '@mui/icons-material/Search';
 import './list.scss';
 
 interface MemberEntity {
@@ -11,13 +13,25 @@ interface MemberEntity {
 }
 
 const List: React.FC = () => {
-  const [members, setMembers] = React.useState<MemberEntity[]>([]);
+  const [members, setMembers] = useState<MemberEntity[]>([]);
+  const [organization, setOrganization] = useState<string>('lemoncode')
+  const [organizationSearch, setOrganizationSearch] = useState<string>(organization)
 
   React.useEffect(() => {
-    fetch(`https://api.github.com/orgs/lemoncode/members`)
+    getOrganization()
+  }, [organization]);
+
+  const getOrganization = () => {
+    fetch(`https://api.github.com/orgs/${organizationSearch}/members`)
       .then((response) => response.json())
       .then((json) => setMembers(json));
-  }, []);
+  }
+
+  const handleSearchOrganization = (e) => {
+    e.preventDefault()
+    setOrganization(organizationSearch)
+  }
+  
 
   const columns: GridColDef[] = [
     { field: 'id', headerName: 'ID', width: 150 },
@@ -29,7 +43,7 @@ const List: React.FC = () => {
       renderCell: (params) => {
         return(
           <div className="avatar-cell">
-            <img className="image" src={params.value} />
+            <img className="image" src={params.value} title="avatar image" />
           </div>
         )
       }
@@ -49,8 +63,33 @@ const List: React.FC = () => {
 
   return (
     <div className="list">
-      <h2 className="list-title">Hello from List page</h2>
+      <h2 className="list-title">
+        <span>Listado de organizaciones</span>
+      </h2>
       <div className="list-grid-wrapper">
+        <div className="list-grid-header">
+          <h3 className="list-sub-title">Listado organización <span>{organization}</span></h3>
+          <form className="filter-wrapper" onSubmit={handleSearchOrganization}>
+            <div className="control-wrapper">
+              <TextField 
+                id="outlined-basic" 
+                label="Busca por orzanización" 
+                variant="outlined" 
+                placeholder="Ingresa una organización"
+                onChange={(e) => setOrganizationSearch(e.target.value)}
+                value={organizationSearch}
+              />
+            </div>
+            <div className="control-wrapper">
+              <Button 
+                type="submit" 
+                variant="contained"
+                endIcon={<SearchIcon />}
+                disabled={organization === '' || organization.length < 3 ? true : false}
+              >Buscar</Button>
+            </div>
+          </form>
+        </div>
         <DataGrid
           rows={members}
           columns={columns}
