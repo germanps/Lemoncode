@@ -7,8 +7,8 @@ import './login.scss'
 
 const Login: React.FC = () => {
   const navigate = useNavigate();
-  const [username, setUsername] = React.useState("");
-  const [password, setPassword] = React.useState("");
+  const [username, setUsername] = React.useState<string>("");
+  const [password, setPassword] = React.useState<string>("");
 
   const handleNavigation = (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault();

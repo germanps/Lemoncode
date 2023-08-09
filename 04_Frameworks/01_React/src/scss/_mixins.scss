@@ -1,8 +1,8 @@
 
 @mixin container($w: 1440px) {
-    width: $w;
-    margin: 1rem auto 0;
-    padding: 1rem 2rem;
+    max-width: $w;
+    margin: auto;
+    padding: 2rem;
     box-sizing: border-box;
 }
 @mixin flexbox($w, $d, $j, $a, $wr: wrap) {

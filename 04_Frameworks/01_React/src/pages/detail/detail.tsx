@@ -78,7 +78,7 @@ const Detail: React.FC = () => {
           checkboxSelection={false}
           disableRowSelectionOnClick
         />
-        <Link to="/list">
+        <Link to="/githublist">
           <Button 
             type="button" 
             variant="contained"

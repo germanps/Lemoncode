@@ -8,7 +8,7 @@ import Stack from '@mui/material/Stack';
 import Paper from '@mui/material/Paper';
 import { styled } from '@mui/material/styles';
 import { useOrganizationContext } from '../../contexts/OrganizationContext'
-import './list.scss';
+import './githublist.scss';
 
 interface MemberEntity {
   id: string;
@@ -16,7 +16,7 @@ interface MemberEntity {
   avatar_url: string;
 }
 
-const List: React.FC = () => {
+const GitHubList: React.FC = () => {
   const {organization, setOrganization} = useOrganizationContext()
   const [members, setMembers] = useState<MemberEntity[]>([]);
   const [showMembersError, setShowMembersError] = useState(false)
@@ -77,7 +77,7 @@ const List: React.FC = () => {
       editable: true,
       renderCell: (params) => {
         return (
-          <Link className="link" to={`/detail/${params.value}`} state={{user: params.row}}>{params.value}</Link>
+          <Link className="link" to={`/githublist/${params.value}`} state={{user: params.row}}>{params.value}</Link>
         )
       }
     },
@@ -150,4 +150,4 @@ const List: React.FC = () => {
   );
 };
 
-export default List;
+export default GitHubList;

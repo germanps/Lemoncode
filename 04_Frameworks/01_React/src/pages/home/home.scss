@@ -1,18 +1,31 @@
 @import '../../scss/index.scss';
 
 .home {
-    @include container();
-    min-height: 100vh;
-    &-title{
-        text-align: center;
-        margin-bottom: 2.5rem;
-        span {
-            border-bottom: 1.5px solid $color-primary;
-            padding-bottom: .5rem;
+    width: 100%;
+    &-container {
+        @include container();
+        min-height: 100vh;
+
+        .home-title{
+            text-align: center;
+            margin-bottom: 3rem;
+            span {
+                border-bottom: 1.5px solid $color-primary;
+                padding-bottom: .5rem;
+            }
+        }
+        .home-subtitle {
+            text-align: center;
+            font-size: 1.25rem;
+            margin-bottom: 3rem;
         }
     }
-    .list-grid-wrapper{
-        max-width: 992px;
+    .card-list{
+        @include flexbox(100%, row, center, center);
         margin: auto;
+        gap: 2rem;
+        @media screen and (min-width: 992px) {
+            width: 950px;
+        }
     }
 }
