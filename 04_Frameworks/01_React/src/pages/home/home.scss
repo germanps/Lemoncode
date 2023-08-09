@@ -1,0 +1,18 @@
+@import '../../scss/index.scss';
+
+.home {
+    @include container();
+    min-height: 100vh;
+    &-title{
+        text-align: center;
+        margin-bottom: 2.5rem;
+        span {
+            border-bottom: 1.5px solid $color-primary;
+            padding-bottom: .5rem;
+        }
+    }
+    .list-grid-wrapper{
+        max-width: 992px;
+        margin: auto;
+    }
+}

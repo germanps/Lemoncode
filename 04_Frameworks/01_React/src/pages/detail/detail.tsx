@@ -12,7 +12,6 @@ const Detail: React.FC = () => {
   const [userRepos, setUserRepos] = React.useState([])
 
   React.useEffect(() => {
-    console.log(state);
     getRepos()
   }, [state])
   
