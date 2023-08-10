@@ -41,6 +41,7 @@ const Login: React.FC = () => {
                 id="outlined-basic" 
                 label="Password:" 
                 variant="outlined" 
+                type='password'
                 placeholder="Aquí tu contraseña"
                 required
                 onChange={(e) => setPassword(e.target.value)}

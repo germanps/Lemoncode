@@ -26,7 +26,7 @@ export const cards = [
             {text: 'No dudes en entrar a ver los personajes de Rick & Morty!'}
         ],
         cardActions: {
-            link: '/rmlist',
+            link: '/rickmortylist',
             text: 'Ver personajes de Rick & Morty'
         }
         

@@ -145,6 +145,9 @@ const GitHubList: React.FC = () => {
               <Item style={{fontSize: '1.2rem'}}>Para navegar a la página de usuario hacer click en su nombre</Item>
             </Stack>
         }
+        <Link to={'/home'} style={{marginTop:'2rem', display: 'inline-block'}}>
+            <Button variant='contained' color='info' size="small">Volver</Button>
+        </Link>
       </div>
     </div>
   );
