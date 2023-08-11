@@ -9,16 +9,12 @@ import Paper from '@mui/material/Paper';
 import { styled } from '@mui/material/styles';
 import { useOrganizationContext } from '../../contexts/OrganizationContext'
 import './githublist.scss';
+import { GithubMemberEntity } from "../../models/GitHub";
 
-interface MemberEntity {
-  id: string;
-  login: string;
-  avatar_url: string;
-}
 
 const GitHubList: React.FC = () => {
   const {organization, setOrganization} = useOrganizationContext()
-  const [members, setMembers] = useState<MemberEntity[]>([]);
+  const [members, setMembers] = useState<GithubMemberEntity[]>([]);
   const [showMembersError, setShowMembersError] = useState(false)
   const [organizationSearch, setOrganizationSearch] = useState<string>(organization)
 
