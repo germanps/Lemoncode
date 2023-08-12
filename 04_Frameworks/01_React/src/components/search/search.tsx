@@ -6,11 +6,23 @@ import './search.scss';
 
 interface ISearch {
   search: string
+  setSearch: React.Dispatch<React.SetStateAction<string>>
 }
 
-const Search = ({search}:ISearch): React.JSX.Element => {
+const Search = ({search, setSearch}:ISearch): React.JSX.Element => {
   return (
-    <div className='search'>buscador</div>
+    <form className='search'>
+      <div className="control-wrapper">
+        <TextField 
+          id="outlined-basic" 
+          label="Buscar" 
+          variant="outlined" 
+          placeholder="Busca el personaje!"
+          onChange={(e) => setSearch(e.target.value)}
+          value={search}
+        />
+      </div>
+    </form>
   )
 }
 
