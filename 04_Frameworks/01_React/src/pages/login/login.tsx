@@ -27,7 +27,7 @@ const Login: React.FC = () => {
           <div className="control-container">
             <div className="control-wrapper">
               <TextField 
-                id="outlined-basic" 
+                id="usernameId" 
                 label="Username" 
                 variant="outlined" 
                 placeholder="Aquí tu nombre"
@@ -38,7 +38,7 @@ const Login: React.FC = () => {
           
             <div className="control-wrapper">
               <TextField 
-                id="outlined-basic" 
+                id="passwordId" 
                 label="Password:" 
                 variant="outlined" 
                 type='password'
