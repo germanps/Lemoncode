@@ -13,13 +13,12 @@ const RMList: React.FC = () => {
     const [search, setSearch] = useState<string>('')
     const [page, setPage] = useState(0)
 
-
     React.useEffect(() => {
         getCharacters()       
     }, [page, search]);
     
     const getCharacters = () => {
-        if(search.length % 2 || search === '')
+        //if(search.length % 2 || search === '')
         
         fetch(`https://rickandmortyapi.com/api/character/?name=${search}&page=${page}`)
             .then((response) => response.json())
@@ -48,7 +47,7 @@ const RMList: React.FC = () => {
             <div className="rm-list-container">
                 {
                     characters.length > 0 ?
-                        <ul className="">
+                        <ul className="rm-grid-list">
                             {
                                 characters.map((el: IRMCharacterEntity, i) => {
                                                                 

@@ -22,9 +22,9 @@ export interface IInfoResponse {
     prev: string
 }
 export interface IRMCharacterEntity {
-    id: string
+    id: number
     name: string
-    status: EStatus
+    status: 'Alive' | 'Dead' | 'unknown'
     species: string
     type: string
     gender: EGender
@@ -32,4 +32,5 @@ export interface IRMCharacterEntity {
     location: IPlace
     image: string
     url: string
+    created: string
 }

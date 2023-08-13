@@ -22,9 +22,9 @@ const Search = ({search, setSearch, setPage}:ISearch): React.JSX.Element => {
       <div className="control-wrapper">
         <TextField 
           id="outlined-basic" 
-          label="Buscar" 
+          label="Busca el personaje" 
           variant="outlined" 
-          placeholder="Busca el personaje!"
+          placeholder="Nombre o apellido!"
           onChange={(e) => handleSearchChange(e)}
           value={search}
         />

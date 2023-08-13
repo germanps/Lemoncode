@@ -1,0 +1,53 @@
+@import '../../../scss/index.scss';
+
+.rm-grid-list__item {
+  --bg-filter-opacity: 0.5;
+  height: 250px;
+  width: 325px;
+  font-size: 1.5rem;
+  color: white;
+  border-radius: 1rem;
+  padding: 1rem;
+  display: flex;
+  align-items: flex-start;
+  flex-direction: column-reverse;
+  background-size: cover;
+  background-position: center;
+  box-shadow: 0 0 3em -1rem black;
+  transition: all ease 0.2s;
+  overflow: hidden;
+  border: 10px solid #ccc;
+  cursor: pointer; 
+  h3 {
+      transition: .2s ease-in-out all;
+  }
+  .icon-wrapper {
+      transition: .5s ease all;
+      .flex-container {
+          @include flexbox(100%, row, flex-start, center);
+      }
+      .ghost-label {
+          display: none;
+          transition: 1.5s ease all;
+      }
+  }
+  &:hover {
+    border-width: 0;
+    transform: rotate(5deg) scale(1.025);
+    box-shadow: none;
+    h3 {
+        font-size: 1.5rem;
+        font-weight: bold;
+        transform: rotate(360deg) translateY(-25px);
+    }
+    .icon-wrapper {
+        transform: rotate(360deg) translateY(30px);
+        .ghost-label {
+            display: block;
+        }
+        svg {
+            font-size: 2rem;
+        }
+    }
+  }
+}
