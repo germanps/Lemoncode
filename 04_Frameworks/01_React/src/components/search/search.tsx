@@ -7,9 +7,16 @@ import './search.scss';
 interface ISearch {
   search: string
   setSearch: React.Dispatch<React.SetStateAction<string>>
+  setPage: React.Dispatch<React.SetStateAction<number>>
 }
 
-const Search = ({search, setSearch}:ISearch): React.JSX.Element => {
+const Search = ({search, setSearch, setPage}:ISearch): React.JSX.Element => {
+
+  const handleSearchChange = (e) => {
+    setPage(1)
+    setSearch(e.target.value)
+  }
+ 
   return (
     <form className='search'>
       <div className="control-wrapper">
@@ -18,7 +25,7 @@ const Search = ({search, setSearch}:ISearch): React.JSX.Element => {
           label="Buscar" 
           variant="outlined" 
           placeholder="Busca el personaje!"
-          onChange={(e) => setSearch(e.target.value)}
+          onChange={(e) => handleSearchChange(e)}
           value={search}
         />
       </div>

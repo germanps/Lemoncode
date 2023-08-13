@@ -43,6 +43,7 @@ const RMList: React.FC = () => {
             <Buscador
                 search={search}
                 setSearch={setSearch}
+                setPage={setPage}
             />
             <div className="rm-list-container">
                 {
