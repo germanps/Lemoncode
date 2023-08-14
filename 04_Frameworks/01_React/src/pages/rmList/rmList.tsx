@@ -4,6 +4,7 @@ import RmItem from "./rmItem";
 import { IRMCharacterEntity, IInfoResponse } from "../../models/RickMorty";
 import Pagination from "../../components/pagination";
 import './rmList.scss';
+import { useDebounce } from "../../hooks/useDebounce";
 
 const RMList: React.FC = () => {
 
@@ -12,13 +13,13 @@ const RMList: React.FC = () => {
     const [infoResponse, setInfoResponse] = useState<IInfoResponse>()
     const [search, setSearch] = useState<string>('')
     const [page, setPage] = useState(0)
+    const debouncedSearch = useDebounce<string>(search, 1000) // 1seg delay between calls when typing
 
     React.useEffect(() => {
-        getCharacters()       
-    }, [page, search]);
+        getCharacters()
+    }, [page, debouncedSearch]);
     
     const getCharacters = () => {
-        //if(search.length % 2 || search === '')
         
         fetch(`https://rickandmortyapi.com/api/character/?name=${search}&page=${page}`)
             .then((response) => response.json())

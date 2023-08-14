@@ -24,7 +24,7 @@ const Pagination = ({
                 breakLabel="..."
                 className='rm-paginate'
                 containerClassName='pagination-container'
-                pageCount={infoResponse ? infoResponse.pages : null}
+                pageCount={infoResponse ? infoResponse.pages : 0}
                 onPageChange={(e) => setPage(e.selected + 1)}
                 marginPagesDisplayed={1}
                 pageRangeDisplayed={5}
