@@ -1,4 +1,5 @@
 import React from 'react'
+import { Link } from 'react-router-dom';
 import WhatshotIcon from '@mui/icons-material/WhatshotOutlined';
 import SmartToyOutlinedIcon from '@mui/icons-material/SmartToyOutlined';
 import ContactSupportOutlinedIcon from '@mui/icons-material/ContactSupportOutlined';
@@ -6,13 +7,14 @@ import { IRMCharacterEntity } from '../../../models/RickMorty'
 import './rmItem.scss'
 
 interface ICharacter {
-    item: IRMCharacterEntity
+    item: IRMCharacterEntity,
 }
+
 
 const RmItem = ({
     item
 }: ICharacter): React.JSX.Element => {
-    
+
     const [character, setCharacter] = React.useState<IRMCharacterEntity>(item)
 
     React.useEffect(() => {
@@ -59,13 +61,19 @@ const RmItem = ({
     })
 
     return (
-        <li className='rm-grid-list__item' 
-            style={backgroundStyle()}
-        >
-            <h3>{character.name}</h3>
-            <div className='icon-wrapper'>
-                {getStateIcon()} 
-            </div> 
+        <li className='rm-grid-list__item'>
+            <Link 
+                className='card-link' 
+                style={backgroundStyle()}
+                to={`/rickmorty/character/${item.name}`}
+                state={{character: item}}
+            >
+                <h3>{character.name}</h3>
+                <div className='icon-wrapper'>
+                    {getStateIcon()} 
+                </div> 
+            
+            </Link>
         </li>
     )
 }

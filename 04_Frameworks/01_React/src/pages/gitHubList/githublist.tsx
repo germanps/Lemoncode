@@ -8,8 +8,8 @@ import Stack from '@mui/material/Stack';
 import Paper from '@mui/material/Paper';
 import { styled } from '@mui/material/styles';
 import { useOrganizationContext } from '../../contexts/OrganizationContext'
-import './githublist.scss';
 import { GithubMemberEntity } from "../../models/GitHub";
+import './githublist.scss';
 
 
 const GitHubList: React.FC = () => {

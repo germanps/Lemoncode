@@ -22,6 +22,11 @@
         span {
             border-bottom: 1.5px solid $color-primary;
             padding-bottom: .5rem;
+            &.bg-title {
+                border: none;
+                padding: 1rem .5rem;
+                background-color: $color-white;
+            }
         }
     }
 }

@@ -3,11 +3,10 @@ import Buscador from "../../components/search";
 import RmItem from "./rmItem";
 import { IRMCharacterEntity, IInfoResponse } from "../../models/RickMorty";
 import Pagination from "../../components/pagination";
-import './rmList.scss';
 import { useDebounce } from "../../hooks/useDebounce";
+import './rmList.scss';
 
 const RMList: React.FC = () => {
-
     const [characters, setCharacters] = useState<IRMCharacterEntity[]>([])
     const [error, setError] = useState('')
     const [infoResponse, setInfoResponse] = useState<IInfoResponse>()
@@ -16,6 +15,7 @@ const RMList: React.FC = () => {
     const debouncedSearch = useDebounce<string>(search, 1000) // 1seg delay between calls when typing
 
     React.useEffect(() => {
+               
         getCharacters()
     }, [page, debouncedSearch]);
     
@@ -50,8 +50,7 @@ const RMList: React.FC = () => {
                     characters.length > 0 ?
                         <ul className="rm-grid-list">
                             {
-                                characters.map((el: IRMCharacterEntity, i) => {
-                                                                
+                                characters.map((el: IRMCharacterEntity, i) => {                         
                                     return(
                                         <RmItem key={i} item={el} />
                                     )

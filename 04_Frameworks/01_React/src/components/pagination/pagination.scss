@@ -7,6 +7,7 @@
         margin: 1rem 0;
         color: $color-primary;
         font-weight: bold;
+        font-size: 1.125rem
     }
     .rm-paginate{
         @include flexbox(100%, row, center, center, nowrap);
