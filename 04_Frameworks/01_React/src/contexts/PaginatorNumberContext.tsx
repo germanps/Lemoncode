@@ -5,12 +5,12 @@ interface IPaginatorContext {
     setPage: (value: number) => void
 }
 const PaginatorContext = React.createContext<IPaginatorContext>({
-    page: 0,
+    page: 1,
     setPage: () => {}
 })
 
 export const PaginationProvider = (props) => {
-    const [page, setPage] = React.useState<number>(0)
+    const [page, setPage] = React.useState<number>(1)
 
     return (
         <PaginatorContext.Provider value={{page, setPage}}>

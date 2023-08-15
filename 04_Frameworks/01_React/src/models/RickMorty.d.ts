@@ -16,9 +16,9 @@ interface IPlace {
 }
 
 export interface IInfoResponse {   
-    count: string
-    next: string
+    count: number
     pages: number
+    next: string
     prev: string
 }
 export interface IRMCharacterEntity {

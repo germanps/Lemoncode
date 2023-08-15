@@ -6,14 +6,13 @@ import ContactSupportOutlinedIcon from '@mui/icons-material/ContactSupportOutlin
 import { IRMCharacterEntity } from '../../../models/RickMorty'
 import './rmItem.scss'
 
-interface ICharacter {
-    item: IRMCharacterEntity,
+interface IProps {
+    item: IRMCharacterEntity
 }
 
-
 const RmItem = ({
-    item
-}: ICharacter): React.JSX.Element => {
+    item,
+}: IProps): React.JSX.Element => {
 
     const [character, setCharacter] = React.useState<IRMCharacterEntity>(item)
 

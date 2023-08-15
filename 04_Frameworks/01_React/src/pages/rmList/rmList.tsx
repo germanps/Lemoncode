@@ -4,21 +4,26 @@ import RmItem from "./rmItem";
 import { IRMCharacterEntity, IInfoResponse } from "../../models/RickMorty";
 import Pagination from "../../components/pagination";
 import { useDebounce } from "../../hooks/useDebounce";
+import { usePaginatorContext } from "../../contexts/PaginatorNumberContext";
 import './rmList.scss';
 
 const RMList: React.FC = () => {
+    const { page, setPage } = usePaginatorContext()
     const [characters, setCharacters] = useState<IRMCharacterEntity[]>([])
     const [error, setError] = useState('')
     const [infoResponse, setInfoResponse] = useState<IInfoResponse>()
     const [search, setSearch] = useState<string>('')
-    const [page, setPage] = useState(0)
     const debouncedSearch = useDebounce<string>(search, 1000) // 1seg delay between calls when typing
 
-    React.useEffect(() => {
-               
+    React.useEffect(() => {   
         getCharacters()
     }, [page, debouncedSearch]);
     
+    React.useEffect(() => {   
+        if(search !== '') setPage(1)
+    }, [search]);
+
+     
     const getCharacters = () => {
         
         fetch(`https://rickandmortyapi.com/api/character/?name=${search}&page=${page}`)
@@ -62,8 +67,6 @@ const RMList: React.FC = () => {
             </div>
             <Pagination
                 infoResponse={infoResponse}
-                page={page}
-                setPage={setPage}
             />
         </div>
     )

@@ -1,8 +1,7 @@
 import React from 'react'
-import { Link, useLocation, useParams } from "react-router-dom"
-import { IRMCharacterEntity } from '../../../models/RickMorty'
-import './rmDetail.scss'
+import { Link, useLocation } from "react-router-dom"
 import { Button } from '@mui/material'
+import './rmDetail.scss'
 
 const rmDetail = (): React.JSX.Element => {
 
