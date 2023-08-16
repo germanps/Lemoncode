@@ -1,0 +1,32 @@
+
+@mixin container($w: 1440px) {
+    max-width: $w;
+    margin: auto;
+    padding: 2rem;
+    box-sizing: border-box;
+}
+@mixin flexbox($w, $d, $j, $a, $wr: wrap) {
+    display: flex;
+    width: $w;
+    flex-direction: $d;
+    justify-content: $j;
+    align-items: $a;
+    flex-wrap: $wr;
+}
+@mixin gridPageHeader() {
+    @include container();
+    min-height: 100vh;
+    &-title{
+        text-align: center;
+        margin-bottom: 2.5rem;
+        span {
+            border-bottom: 1.5px solid $color-primary;
+            padding-bottom: .5rem;
+            &.bg-title {
+                border: none;
+                padding: 1rem .5rem;
+                background-color: $color-white;
+            }
+        }
+    }
+}

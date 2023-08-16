@@ -1,0 +1,42 @@
+@import '../../scss/index.scss';
+
+.detail {
+    @include container();
+    min-height: 100vh;
+    &-title{
+        text-align: center;
+        margin-bottom: 2.5rem;
+        span {
+            border-bottom: 1.5px solid $color-primary;
+            padding-bottom: .5rem;
+        }
+    }
+    .details-container{
+        max-width: 992px;
+        margin: auto;
+        .detail-user-image-wrapper {
+            width: 450px;
+            height: 350px;
+            margin: 0 auto 2rem;
+            img {
+                width: 100%;
+                height: 350px;
+                object-fit: cover;
+                border-radius: 5px;
+            }
+        }
+        .grid-title {
+            color: $color-primary;
+            font-weight: bold;
+            margin-bottom: 1rem;
+        }
+        .repos-list-grid {
+            font-size: 1.1rem;
+            margin-bottom: 1.5rem;
+        }
+        .link {
+            color: $color-primary;
+            font-weight: bold;
+        }
+    }
+}

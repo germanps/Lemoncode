@@ -1,0 +1,49 @@
+@import '../../scss/index.scss';
+
+.list {
+    @include gridPageHeader();
+    .list-grid-wrapper{
+        max-width: 992px;
+        margin: auto;
+        .list-grid-header {
+            @include flexbox(100%, row, space-between, center, nowrap);
+            margin-bottom: 1rem;
+            .list-sub-title {
+                width: 100%;
+                span {
+                    color: $color-primary;
+                    font-weight: bold;
+                }
+            }
+            .filter-wrapper{
+                @include flexbox(100%, row, flex-end, center);
+                .control-wrapper:last-of-type {
+                    margin-left: 1rem;
+                }
+            }
+        }
+        .members-list-grid {
+            font-size: 1.1rem;
+            margin-bottom: 1.5rem;
+            .MuiDataGrid-virtualScroller{
+                .MuiDataGrid-virtualScrollerContent{
+                    min-height: 40px !important;
+                }
+            }
+            .avatar-cell {
+                width: 100%;
+                height: 50px;
+                .image {
+                    width: 100%;
+                    height: 50px;
+                    object-fit: contain;
+                    border-radius: 5px;
+                }
+            }
+            .link {
+                color: $color-primary;
+            }
+        }  
+
+    }
+}

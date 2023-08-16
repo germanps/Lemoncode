@@ -1,0 +1,43 @@
+@import '../../scss/index.scss';
+
+.pagination {
+    width: 100%;
+    padding: .5rem 0;
+    .page-display{
+        margin: 1rem 0;
+        color: $color-primary;
+        font-weight: bold;
+        font-size: 1.125rem
+    }
+    .rm-paginate{
+        @include flexbox(100%, row, center, center, nowrap);
+
+        .item{
+            padding: .5rem;
+            margin-right: .5rem;
+            cursor: pointer;
+            &.pagination-page {
+                @include flexbox(40px, row, center, center, nowrap);
+                font-size: 1.2rem;
+                background-color: $color-primary-disabled;
+                border-radius: 50%;
+                height: 40px;
+                &.active {
+                    background-color: $color-primary;
+                    .link{
+                        color: $color-white;
+                        font-weight: bold;
+                    }
+                }
+                .link {
+                    padding: 1rem;
+                }
+            }
+            &.break {
+                width: 40px;
+                text-align: center;
+                font-size: 2rem;
+            }
+        }
+    }
+}
