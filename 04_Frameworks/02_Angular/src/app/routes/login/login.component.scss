@@ -1,6 +1,6 @@
 @import '../../../styles.scss';
 .login-form{
-  background-color: gainsboro;
+  background-color: $bgForm;
   width: 350px;
   position: absolute;
   top: 50%;
@@ -15,11 +15,11 @@
     margin-bottom: 2rem;
     padding-bottom: 1rem;
   }
-
-  .btn-wrapper {
-
-    .btn-submit {
-      //border: 1.5px solid $bgColor;
-    }
+  .progress-bar {
+    margin-bottom: 1.2rem;
+  }
+  .error-message {
+    margin-bottom: 1rem;
+    color: $colorDanger;
   }
 }

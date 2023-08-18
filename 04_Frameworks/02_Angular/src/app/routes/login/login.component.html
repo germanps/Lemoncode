@@ -23,6 +23,8 @@
       <mat-error *ngIf="password.touched">{{getError(password)}}</mat-error>
     </mat-form-field>
 
+    <div class="error-message" *ngIf="showError">{{errorLoggin}}</div>
+    <mat-progress-bar class="progress-bar" *ngIf="loading" mode="indeterminate"></mat-progress-bar>
     <div class="btn-wrapper">
       <button
         mat-raised-button
