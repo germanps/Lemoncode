@@ -1,0 +1,25 @@
+@import '../../../styles.scss';
+.login-form{
+  background-color: gainsboro;
+  width: 350px;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  text-align: center;
+  padding-top: 1.2rem;
+  padding-bottom: 1rem;
+  .login-title{
+    font-size: 1.2rem;
+    border-bottom: 1px solid;
+    margin-bottom: 2rem;
+    padding-bottom: 1rem;
+  }
+
+  .btn-wrapper {
+
+    .btn-submit {
+      //border: 1.5px solid $bgColor;
+    }
+  }
+}

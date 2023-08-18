@@ -1,0 +1,26 @@
+@import '../../../styles.scss';
+
+.menu-navbar {
+  .menu-list {
+    display: flex;
+    align-items: center;
+    list-style: none;
+    .user {
+      background-color: white;
+      color: $bgColor;
+      border-radius: 50%;
+      width: 35px;
+      height: 35px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      margin-left: 1rem;
+    }
+    .logout {
+      button {
+        color: #dc0028;
+        font-weight: bold;
+      }
+    }
+  }
+}

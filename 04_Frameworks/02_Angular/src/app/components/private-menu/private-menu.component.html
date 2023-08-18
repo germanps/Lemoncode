@@ -1,1 +1,22 @@
-<div>private-menu works!</div>
+<nav class="menu-navbar">
+  <ul class="menu-list">
+    <li class="menu-list__item">
+      <button role="link" type="button" mat-button routerLink="/dashboard">Dashboard</button>
+    </li>
+    <li class="menu-list__item">
+      <button role="link" type="button" mat-button routerLink="/gallery">Galeria</button>
+    </li>
+    <li class="menu-list__item">
+      <button role="link" type="button" mat-button routerLink="/crud">Crud</button>
+    </li>
+    <li class="menu-list__item">
+      <button role="link" type="button" mat-button routerLink="/profile">Profile</button>
+    </li>
+    <li class="menu-list__item user" title="{{user}}">
+      <span>{{userLogged}}</span>
+    </li>
+    <li class="menu-list__item logout">
+      <button role="link" type="button" mat-button (click)="logOut()">Desconectar</button>
+    </li>
+  </ul>
+</nav>

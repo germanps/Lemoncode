@@ -8,8 +8,8 @@
       <span>Angular App</span>
     </div>
     <div class="menu-app-av">
-      <app-public-menu></app-public-menu>
-      <!-- <app-private-menu></app-private-menu> -->
+      <app-public-menu *ngIf="!isLogged"></app-public-menu>
+      <app-private-menu *ngIf="isLogged"></app-private-menu>
     </div>
   </mat-toolbar-row>
 
