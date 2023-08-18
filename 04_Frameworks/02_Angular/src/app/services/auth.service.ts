@@ -13,7 +13,7 @@ export class AuthService {
   }
 
   login(user: IUserLogin): Observable<boolean> {
-    if (user.username === 'master8@lemoncode.net' && user.password === '12345678') {
+    if (user.username === 'master@lemoncode.net' && user.password === '12345678') {
     // if (user.username === 'q' && user.password === 'q') {
       localStorage.setItem('username', user.username)
       return of(true).pipe(delay(2000))
