@@ -1,0 +1,21 @@
+/* You can add global styles to this file, and also import other style files */
+@import url('https://fonts.googleapis.com/css2?family=Prompt&display=swap');
+//variables
+$whiteColor: #fff;
+$bgColor: #212121;
+$border: teal;
+$bgForm: gainsboro;
+$colorDanger: #dc0028;
+$font: 'Prompt', sans-serif;
+
+html, body { height: 100%; }
+body { margin: 0; font-family: $font !important; }
+.app-root {
+  min-height: 100vh;
+}
+p.ab-p {
+  display: flex;
+  justify-content: center;
+  font-size: 1.5rem;
+  margin: 2rem 0 12px;
+}

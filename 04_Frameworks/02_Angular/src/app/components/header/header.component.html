@@ -1,0 +1,17 @@
+<mat-toolbar>
+  <mat-toolbar-row class="nav-bar">
+    <div class="menu-app-title">
+      <img class="logo-header" src="../../../assets/angular_whiteTransparent.png" alt="logo angular">
+      <span>Angular Rules</span>
+      <mat-icon
+        class="flash-icon"
+        aria-hidden="false"
+        aria-label="icon">flash_on</mat-icon>
+    </div>
+    <div class="menu-app-nav">
+      <app-public-menu class="menu-public" *ngIf="!isLogged"></app-public-menu>
+      <app-private-menu class="menu-private" *ngIf="isLogged"></app-private-menu>
+    </div>
+  </mat-toolbar-row>
+
+</mat-toolbar>
