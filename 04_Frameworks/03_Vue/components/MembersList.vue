@@ -1,13 +1,15 @@
 <template>
     <ul class="members-list">
         <li class="members-list__item" v-for="member in members" :key="member.id">
-            <article class="member-item" @click="viewItem(member)">
-                <div class="img-wrapper">
-                    <img class="image" :src="member.avatar_url" />
-                </div>
-                <p class="paragraph">Nombre: {{ member.login }}</p>
-                <p class="paragraph">Rol: {{ member.type }}</p>
-            </article>
+            <NuxtLink :to="`/member/${member.login}`" class="link"> 
+                <article class="member-item">
+                    <div class="img-wrapper">
+                        <img class="image" :src="member.avatar_url" />
+                    </div>
+                    <p class="paragraph">Nombre: {{ member.login }}</p>
+                    <p class="paragraph">Rol: {{ member.type }}</p>
+                </article>
+            </NuxtLink> 
         </li>
     </ul>
 </template>
