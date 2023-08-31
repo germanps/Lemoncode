@@ -1,5 +1,5 @@
   
-export interface Members {
+export interface Member {
   login: string,
   id: 14540103,
   avatar_url: string,
