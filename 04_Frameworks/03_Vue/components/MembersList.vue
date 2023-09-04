@@ -17,12 +17,7 @@
 <script setup lang="ts">
     import { membersService } from '@/services/members'
     import { Member } from '~/types';
-    const members = await membersService.get() 
-
-    const viewItem = (member: Member) => {
-        console.log(member);
-        
-    }
+    const members: Member[] = await membersService.get() 
  
 </script>
 
