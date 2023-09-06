@@ -11,4 +11,12 @@ export interface Member {
   type: string,
   site_admin: boolean
 }
-  
+
+export interface MemberDetail {
+  name: string,
+  avatar_url: string,
+  email: string,
+  location: string,
+  bio: string,
+  company: string
+}

@@ -2,28 +2,19 @@
     <div class="container-wrapper">
         <form class="form">
             <div class="search-wrapper">
-                <input type="text" v-model="companySearch" />
-                <button 
-                    class="button" 
-                    type="submit"
-                    @click.prevent="searchByCompany"
-                >Buscar</button>
+                <input class="search-input" type="text" v-model="companyInputSearch" />
+                <SearchButton @searchCompany="searchByCompany" />
             </div>
             <div class="total-members">
-                <span>Total: {{ totalMembers }}</span>
+                <span>Total: {{ total }}</span>
+                {{ companyInputSearch }}
             </div>
-
         </form>
-        <ul class="members-list">
-            <li class="members-list__item" v-for="member in members" :key="member.id">
-                <NuxtLink :to="`/member/${member.login}`" class="link"> 
-                    <article class="member-item">
-                        <div class="img-wrapper">
-                            <img class="image" :src="member.avatar_url" />
-                        </div>
-                        <p class="paragraph">Nombre: {{ member.login }}</p>
-                        <p class="paragraph">Rol: {{ member.type }}</p>
-                    </article>
+        <div class="members-error" v-if="!membersSearch || membersSearch.length === 0">No se han encontrado miembros para esta organización: {{ companyInputSearch }}</div>
+        <ul v-else class="members-list">
+            <li class="members-list__item" v-for="member in membersSearch" :key="member.id">
+                <NuxtLink :to="`/member/${member.login}`" :company="company" class="link"> 
+                    <CardInfo :member="member" />
                 </NuxtLink> 
             </li>
         </ul>
@@ -31,11 +22,21 @@
 </template>
 
 <script setup lang="ts">
+    import { storeToRefs } from 'pinia'
+    import { membersService } from '~/services/members'
+    const store  = useCompanyStore()
+    const { company } = storeToRefs(store)
     const { members, totalMembers } = await useMembersApi()
-    const companySearch = ref('lemoncode')
+    const companyInputSearch = ref(company) // set company in store
+    let total: any = ref(totalMembers)
+    let membersSearch: any = ref(members); //set members in local variable
 
-    const searchByCompany = () => {
-        console.log(companySearch.value);
+    const searchByCompany = async () => {
+        //get members by new search when click btn
+        const membersBySearch = await membersService.get()
+        //set new data in local variables
+        total = membersBySearch.length
+        membersSearch.value = membersBySearch
     }
 </script>
 
@@ -55,9 +56,29 @@
             
         }
     }
+    .search-wrapper {
+        .search-input {
+            height: 32px;
+            padding: 0 5px;
+            border: 1.5px solid teal;
+            margin-right: .5rem;
+            font-weight: bold;
+            color: teal;
+            &:focus {
+                outline: none;
+            }
+        }
+    }
+    .members-error {
+        margin-top: 2rem;
+        font-size: 1.1rem;
+        color: red;
+        font-weight: bold;
+        font-style: italic;
+    }
     .total-members {
         width: 240px;
-        margin: auto;
+        margin: 1.5rem auto 0;
         text-align: left;
     }
     .members-list {
@@ -83,22 +104,6 @@
             padding: .5rem;
             text-align: center;
             border-radius: 2px;
-            .member-item {
-                height: 100%;
-                .img-wrapper {
-                    width: 100%;
-                    height: 250px;
-                    margin-bottom: .5rem;
-                    .image {
-                        width: 100%;
-                        height: 210px;
-                        object-fit: cover;
-                    }
-                }
-                .paragraph:not(:last-child) {
-                    margin-bottom: .5rem;
-                }
-            }
         }
     }
 </style>

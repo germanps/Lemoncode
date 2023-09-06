@@ -3,7 +3,6 @@
         class="nav flex align-items-center justify-content-between container"
     >
         <div>Github Users</div>
-        <div>Company: </div>
     </nav>
 </template>
 
