@@ -1,0 +1,30 @@
+@import "scss/varibles";
+@import "scss/mixins";
+
+* {
+    box-sizing: border-box;
+}
+body {
+    margin: 0;
+    padding: 0;
+    background-color: $bg-primary;
+}
+.page.main-container {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+
+    div.base-color {
+        span.color-box-text{ 
+            color: $color-white; 
+        }  
+    }
+    @include box-general-loop( 
+        $base-color, 
+        $base-color-primary, 
+        $base-color-secondary, 
+        $base-color-default
+    ) 
+}
