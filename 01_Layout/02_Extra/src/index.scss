@@ -2,29 +2,131 @@
 @import "scss/mixins";
 
 * {
-    box-sizing: border-box;
+  margin: 0;
+  padding: 0;
 }
-body {
-    margin: 0;
+ul, li {
+    list-style: none;
     padding: 0;
-    background-color: $bg-primary;
 }
-.page.main-container {
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
-    height: 100vh;
 
-    div.base-color {
-        span.color-box-text{ 
-            color: $color-white; 
-        }  
+body {
+    font-family: $font;
+    display: grid;
+    grid-template-rows: auto 1fr auto;
+    height: 100vh;
+    header {
+        .toolbar {
+            display: none;
+            @media screen and (min-width: $media-small-land) {
+                display: flex;
+                flex-direction: row;
+                justify-content: space-between;
+                align-items: center;
+                padding: 10px;
+            }
+            input {
+                padding: 5px;
+                width: 225px;
+            }
+
+        }
+        .page-title {
+            background-color: $base-color-secondary;
+            color: white;
+            font-size: 1.5rem;
+            font-weight: bold;
+            padding: 1rem;
+        }
     }
-    @include box-general-loop( 
-        $base-color, 
-        $base-color-primary, 
-        $base-color-secondary, 
-        $base-color-default
-    ) 
+
+    .page-container {
+        display: flex;
+        flex-direction: column;
+        @media screen and (min-width: $media-small-land) {
+            flex-direction: row;
+        }
+        nav {
+            width: 100%;
+            position: sticky;
+            top: 0;
+            background-color: $base-color-primary;
+            @media screen and (min-width: $media-small-land) {
+                width: 170px;
+                position: inherit;
+            }
+            .menu-container {
+                display: flex;
+                flex-direction: column;
+                position: sticky;
+                top: 0;
+                .menu-title {
+                    display: none;
+                    @media screen and (min-width: $media-small-land) {
+                        font-size: 1.4rem;
+                        font-weight: bold;
+                        color: $color-white;
+                        text-align: center;
+                        padding: 10px 0;
+
+                    }
+                }
+                ul {
+                    list-style: none;
+                    font-size: 1rem;
+                    display: grid;
+                    grid-template-columns: repeat(4, 1fr);
+                    background-color: transparent;
+                    @media screen and (min-width: $media-small-land) {
+                        display: inline-block;
+                        background-color: $base-color-default;
+                    }
+                    li {
+                        background-color: $base-color-default;
+                        margin: .5rem;
+                        padding: 0.5rem;
+                        text-align: center;
+                        border: none;
+                        @media screen and (min-width: $media-small-land) {
+                            margin: 1px;
+                            border-bottom: 0.5px solid;
+                            text-align: left;
+                            &:last-of-type {
+                                border: none;
+                            }
+                        }
+                    }
+                }
+            }
+        }
+        main {
+            width: 100%;
+            background-color: whitesmoke;
+            @media screen and (min-width: $media-small-land) {
+                width: calc(100% - 170px);
+            }
+        }
+        .list {
+            display: flex;
+            flex-direction: column;
+            flex-wrap: wrap;
+            justify-content: space-evenly;
+            gap: .5rem;
+            padding: .5rem;
+            @media screen and (min-width: $media-small-land) {
+                flex-direction: row;
+                padding: 1rem .5rem;
+                row-gap: 1rem;
+            }
+            .card {
+                @include card($color-white);
+            }
+        }
+    }
+
+    footer {
+        padding: 15px;
+        background-color: $base-color-default;
+        min-height: 20px;
+    }
 }
