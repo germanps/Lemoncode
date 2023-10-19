@@ -1,11 +1,12 @@
-import { css } from '@emotion/css';
-import { theme } from 'core/theme';
+import { css } from '@emotion/css'
+import { theme } from 'core/theme'
 
 export const root = css`
-  & > :nth-child(n + 2) {
-    margin-top: 2rem;
-  }
-`;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center
+`
 
 export const list = css`
   display: grid;
@@ -13,7 +14,9 @@ export const list = css`
   grid-row-gap: 2rem;
   grid-column-gap: 2rem;
   list-style: none;
-  margin: 0;
+  max-width: 1440px;
+  width: 100%;
+  margin: 2rem 0 0;
   padding: 0;
 
   @media (min-width: ${theme.breakpoints.values.sm}px) {
@@ -23,4 +26,4 @@ export const list = css`
   @media (min-width: ${theme.breakpoints.values.md}px) {
     grid-template-columns: repeat(3, 1fr);
   }
-`;
+`
