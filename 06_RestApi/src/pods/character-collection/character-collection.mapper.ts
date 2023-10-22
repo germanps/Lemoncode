@@ -1,13 +1,12 @@
-import * as apiModel from 'pods/character/api'
+import * as apiModel from './api/character-collection.api-model'
 import * as viewModel from './character-collection.vm'
 
 export const mapFromApiToVm = (
-  character: apiModel.Character
+  caharacter: apiModel.CharacterEntityApi
 ): viewModel.CharacterEntityVm => ({
-  bestSentences: character.bestSentences,
-  id: character.id,
-  name: character.name,
-  status: character.status,
-  species: character.species,
-  image: character.image,
+  id: caharacter.id,
+  picture: `${caharacter.image}`,
+  name: caharacter.name,
+  status: caharacter.status,
+  species: caharacter.species,
 })

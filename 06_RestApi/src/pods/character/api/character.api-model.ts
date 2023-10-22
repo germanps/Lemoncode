@@ -1,25 +1,21 @@
-
-export interface Origin {
-  name: string
-  url: string
-}
-
-export interface Location {
-  name: string
-  url: string
-}
 export interface Character {
   id: string
   name: string
+  gender: string
   status: string
   species: string
   type: string
-  gender: string
-  bestSentences: string
-  origin: Origin
   image: string
-  location: Location
+  origin: {
+    name: string
+    url: string
+  },
+  location: {
+    name: string
+    url: string
+  },
   episode: string[]
   url: string
+  bestSentences: string
   created: string
 }

@@ -1,12 +1,12 @@
-import { css } from '@emotion/css'
-import { theme } from 'core/theme'
+import { css } from '@emotion/css';
+import { theme } from 'core/theme';
 
 export const root = css`
   display: flex;
   flex-direction: column;
   justify-content: center;
   align-items: center
-`
+`;
 
 export const list = css`
   display: grid;
@@ -26,4 +26,4 @@ export const list = css`
   @media (min-width: ${theme.breakpoints.values.md}px) {
     grid-template-columns: repeat(3, 1fr);
   }
-`
+`;

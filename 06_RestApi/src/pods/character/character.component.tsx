@@ -1,48 +1,42 @@
 import React from 'react'
+import Button from '@mui/material/Button'
+import { Formik, Form } from 'formik'
+import { TextFieldComponent } from 'common/components'
+import { formValidation } from './character.validations'
 import { Character } from './character.vm'
-import { STATUS } from '../../common/models'
 import * as classes from './character.styles'
+import { CardMedia } from '@mui/material'
 
 interface Props {
   character: Character
+  onSave: (character: Character) => void
 }
 
-export const CharacterComponent: React.FunctionComponent<Props> = (props) => {
-  const { character } = props;
+export const CharacterComponent: React.FunctionComponent<Props> = ({ character, onSave }: Props) => {
   return (
-    <section className={classes.container}>
-      <div className={classes.imgWrapper}>
-        <img className={classes.image} alt='character-image' src={character.image} />
-      </div>
-      <div className={classes.infoWrapper}>
-        <h2 className={classes.title}>{character.name}</h2>
-        <div className={classes.status}>
-          <span style={{ backgroundColor: STATUS[character.status] }} className={classes.icon} />
-          <span className={classes.colorTitle}>{character.status}</span>
-        </div>
-        <div className={classes.wrapper}>
-          <span className={classes.colorTitle}>Gender:</span>
-          <span className={classes.colorText}>{character.gender}</span>
-        </div>
-        <div className={classes.wrapper}>
-          <span className={classes.colorTitle}>Species:</span>
-          <span className={classes.colorText}>{character.species}</span>
-        </div>
-        {character.type !== "" ? (
-          <div className={classes.wrapper}>
-            <span className={classes.colorTitle}>Type:</span>
-            <span className={classes.colorText}>{character.type}</span>
-          </div>
-        ) : null}
-        <div className={classes.wrapper}>
-          <span className={classes.colorTitle}>Last known location:</span>
-          <span className={classes.colorText}>{character.location.name}</span>
-        </div>
-        <div className={classes.wrapper}>
-          <span className={classes.colorTitle}>First seen in:</span>
-          <span className={classes.colorText}>{character.origin.name}</span>
-        </div>
-      </div>
-    </section>
+    <div className={classes.root}>
+        <img
+          src={character.image}
+          title={character.name}
+          alt='picture'
+          style={{ height: '500px', width: '100%', objectFit: 'cover' }}
+        />
+        <Formik
+          onSubmit={onSave}
+          initialValues={character}
+          enableReinitialize={true}
+          validate={formValidation.validateForm}
+          >
+          {() => (
+            <Form className={classes.root}>
+              <TextFieldComponent name="name" label="Name" />
+              <TextFieldComponent name="species" label="Species" />
+              <TextFieldComponent name="status" label="Status" />
+              <TextFieldComponent name="bestSentences" label="Best Sentences" />
+              <Button type="submit" variant="contained" color="primary">Save</Button>
+            </Form>
+          )}
+        </Formik>
+    </div>
   )
 }
